@@ -67,6 +67,9 @@ class PackmolInput():
             file_text = file_text[:-2]
             file_text += 'end structure\n\n'
         return file_text
+    def exportFile(self,path):
+        with open(path,'w') as inputfile:
+            inputfile.write(self.genFileText())
     def addStructure(self,pdb,number):
         self.structures.append(PackmolStructure(pdb,number))
     def addConstraintFixed(self,x,y,z,a,b,g):
