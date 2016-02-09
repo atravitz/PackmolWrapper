@@ -16,6 +16,11 @@
 
 """ Quick Guide for Packmol's Input located at
     http://www.ime.unicamp.br/~martinez/packmol/ """
+from subprocess import Popen, PIPE
+
+class PackmolError(Exception):
+    pass
+
 class PackmolStructure():
     def __init__(self,pdb,number):
         self.pdb = pdb
@@ -72,6 +77,33 @@ class PackmolInput():
     def exportFile(self,path):
         with open(path,'w') as inputfile:
             inputfile.write(self.genFileText())
+    def check_no_exception(self,stdout_path=None):
+        """
+            Read standard error file at stdout_path to
+            decide if Packmol ended in error. Raises an
+            exception if Packmol ended in error.
+        """
+        error_flag = False
+        with open(stdout_path,'r') as stdout:
+            for line in stdout.readlines():
+                if not error_flag and 'ERROR:' in line:
+                    error_flag = True
+                    error_msg = '\n'
+                if error_flag:
+                    error_msg += line
+        if error_flag:
+            raise PackmolError(error_msg)
+
+    def run(self):
+        self.exportFile('.packmol.inp')
+        with open('.packmol.inp') as inpfile:
+            with open('.packmol.stdout','w') as stdout:
+                inp = inpfile.read()
+                p = Popen(['packmol'],stdin=PIPE,stdout=stdout)
+                p.communicate(input=inp)
+                    
+        self.check_no_exception('.packmol.stdout')
+
     def addStructure(self,pdb,number):
         self.structures.append(PackmolStructure(pdb,number))
     def addConstraintFixed(self,x,y,z,a,b,g):
