@@ -54,7 +54,7 @@ class PackmolStructure():
         self.constraint_text += 'below plane %f %f %f %f\n'%(a,b,c,d)
 
 class PackmolInput():
-    def __init__(self,tolerance,filetype,output,box_buffer):
+    def __init__(self, tolerance, filetype, output, box_buffer):
         self.tolerance = tolerance
         self.filetype = filetype
         self.output = output
@@ -69,7 +69,7 @@ class PackmolInput():
         file_text += '\n'
         for structure in self.structures:
             file_text += 'structure %s\n'%(structure.pdb)
-            file_text += '  number %d\n  '%(structure.number) 
+            file_text += '  number %d\n  '%(structure.number)
             file_text += structure.constraint_text.replace('\n','\n  ')
             file_text = file_text[:-2]
             file_text += 'end structure\n\n'
@@ -99,9 +99,9 @@ class PackmolInput():
         with open('.packmol.inp') as inpfile:
             with open('.packmol.stdout','w') as stdout:
                 inp = inpfile.read()
-                p = Popen(['packmol'],stdin=PIPE,stdout=stdout)
+                p = Popen(['packmol'], stdin=PIPE, stdout=stdout, shell=True, encoding='utf8')
                 p.communicate(input=inp)
-                    
+
         self.check_no_exception('.packmol.stdout')
 
     def addStructure(self,pdb,number):
