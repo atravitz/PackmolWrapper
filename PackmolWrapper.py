@@ -53,8 +53,9 @@ class PackmolStructure():
 				And it is possible to restrict atoms to be below [>= 0] or below [<= 0] the plane."""
 		self.structure_constraint_text += 'below plane %f %f %f %f\n'%(a,b,c,d)
    
-class PackmolAtom():
-	def __init__(self, atom_chosen):
+class PackmolAtom(PackmolStructure):
+	def __init__(self,pdb,number,atom_chosen):
+		PackmolStructure.__init__(self,pdb,number)
 		self.atom_chosen = atom_chosen
 		self.atom_constraint_text = ''    
 
@@ -164,8 +165,8 @@ class PackmolInput():
 		self.structures[-1].addConstraintBelowPlane(a,b,c,d)
 	
 
-	def pickAtoms(self, atom_chosen):
-		self.atoms.append(PackmolAtom(atom_chosen))
+	def pickAtoms(self,pdb,number,atom_chosen):
+		self.atoms.append(PackmolAtom(pdb, number,atom_chosen))
 	def addAtomConstraintFixed(self, x, y, z, a, b, g):
 		self.atoms[-1].addAtomConstraintFixed(x,y,z,a,b,g)
 	def addAtomConstraintInsideCube(self,x_min,y_min,z_min,d):

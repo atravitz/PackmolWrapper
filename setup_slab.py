@@ -55,4 +55,33 @@ packmol.addConstraintInsideBox(box_buffer, box_buffer, box_buffer,
                                10.*box_size[0]-box_buffer,
                                10.*box_size[1]-box_buffer,
                                10.*box_size[2]-box_buffer)
+packmol.pickAtoms('10kuhn.xyz', number,1)
+packmol.addAtomConstraintInsideBox(box_buffer, box_buffer, box_buffer,
+                               10.*box_size[0]-box_buffer,
+                               10.*box_size[1]-box_buffer,
+                               10.*box_size[2]-box_buffer)
+packmol.pickAtoms('10kuhn.xyz', number,2)
+packmol.addAtomConstraintInsideBox(box_buffer, box_buffer, box_buffer,
+                               10.*box_size[0]-box_buffer,
+                               10.*box_size[1]-box_buffer,
+                               10.*box_size[2]-box_buffer)
+packmol.addAtomConstraintOverPlane(1., 0., 0., 5)
+
+packmol.addStructure('10kuhn_bridge.xyz', number)
+packmol.addConstraintInsideBox(box_buffer, box_buffer, box_buffer,
+                               10.*box_size[0]-box_buffer,
+                               10.*box_size[1]-box_buffer,
+                               10.*box_size[2]-box_buffer)
+packmol.pickAtoms('10kuhn_bridge.xyz', number,1)
+packmol.addAtomConstraintInsideBox(box_buffer, box_buffer, box_buffer,
+                               10.*box_size[0]-box_buffer,
+                               10.*box_size[1]-box_buffer,
+                               10.*box_size[2]-box_buffer)
+packmol.pickAtoms('10kuhn_bridge.xyz', number,2)
+packmol.addAtomConstraintInsideBox(box_buffer, box_buffer, box_buffer,
+                               10.*box_size[0]-box_buffer,
+                               10.*box_size[1]-box_buffer,
+                               10.*box_size[2]-box_buffer)
+packmol.addAtomConstraintOverPlane(1., 0., 0., 5)
+
 packmol.run()
