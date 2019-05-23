@@ -50,21 +50,21 @@ box_size = [xy_len,xy_len,10]
 # pack a box with molecules sparsely, using half the estimated
 # number density (estimate comes from resources file)
 packmol = PackmolInput(packmol_tol, 'xyz', 'test.xyz', 2*box_buffer)
-structure1 = packmol.addStructure('10kuhn.xyz', number)
+structure1 = packmol.addStructure('molecules/10kuhn.xyz', number)
 packmol.addStructureConstraintInsideBox(box_buffer, box_buffer, box_buffer,
                                10.*box_size[0]-box_buffer,
                                10.*box_size[1]-box_buffer,
                                10.*box_size[2]-box_buffer)
-atom1 = structure1.pickAtoms(1)
-structure1.addAtomConstraintInsideBox(box_buffer, box_buffer, box_buffer,
-                               10.*box_size[0]-box_buffer,
-                               10.*box_size[1]-box_buffer,
-                               10.*box_size[2]-box_buffer)
-
-structure2 = packmol.addStructure('10kuhn.xyz', number)
-packmol.addStructureConstraintInsideBox(box_buffer, box_buffer, box_buffer,
-                               10.*box_size[0]-box_buffer,
-                               10.*box_size[1]-box_buffer,
-                               10.*box_size[2]-box_buffer)
+# atom1 = structure1.pickAtoms(1)
+# structure1.addAtomConstraintInsideBox(box_buffer, box_buffer, box_buffer,
+#                                10.*box_size[0]-box_buffer,
+#                                10.*box_size[1]-box_buffer,
+#                                10.*box_size[2]-box_buffer)
+#
+# structure2 = packmol.addStructure('molecules/10kuhn.xyz', number)
+# packmol.addStructureConstraintInsideBox(box_buffer, box_buffer, box_buffer,
+#                                10.*box_size[0]-box_buffer,
+#                                10.*box_size[1]-box_buffer,
+#                                10.*box_size[2]-box_buffer)
 
 packmol.run()

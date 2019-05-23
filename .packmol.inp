@@ -3,12 +3,7 @@ tolerance 1.000000
 filetype xyz
 output test.xyz
 
-structure 10kuhn.xyz
-number 100
-  inside box 0.500000 0.500000 0.500000 299.500000 299.500000 99.500000
-end structure
-
-structure 10kuhn.xyz
+structure molecules/10kuhn.xyz
 number 100
   inside box 0.500000 0.500000 0.500000 299.500000 299.500000 99.500000
 end structure
