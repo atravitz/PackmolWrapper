@@ -28,7 +28,7 @@ class PackmolStructure():
 		self.atoms = []
 		self.structure_constraint_text = ''
 		self.atom_text = ''
-	
+
 	def pickAtoms(self,atom_chosen):
 		self.atoms.append(PackmolAtom())
 		return PackmolAtom()
