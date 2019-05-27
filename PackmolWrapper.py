@@ -83,8 +83,9 @@ class PackmolInput():
 		self.check_no_exception('.packmol.stdout')
 
 	def addStructure(self,pdb,number):
-		self.structures.append(PackmolStructure(pdb,number))
-		return PackmolStructure(pdb,number)
+		structure_tmp = PackmolStructure(pdb,number)
+		self.structures.append(structure_tmp)
+		return structure_tmp
 
 	def addStructureConstraintFixed(self, x, y, z, a, b, g):
 		self.structures[-1].addStructureConstraintFixed(x,y,z,a,b,g)

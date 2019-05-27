@@ -47,14 +47,13 @@ box_size = [xy_len,xy_len,10]
 
 # pack a box with molecules sparsely, using half the estimated
 # number density (estimate comes from resources file)
-packmol = PackmolInput(packmol_tol, 'xyz', 'test.xyz', 2*box_buffer)
-# import pdb; pdb.set_trace()
-structure1 = packmol.addStructure('molecules/10kuhn.xyz', number)
-packmol.addStructureConstraintInsideBox(box_buffer, box_buffer, box_buffer,
+input = PackmolInput(packmol_tol, 'xyz', 'test.xyz', 2*box_buffer)
+structure1 = input.addStructure('molecules/10kuhn.xyz', number)
+input.addStructureConstraintInsideBox(box_buffer, box_buffer, box_buffer,
                                10.*box_size[0]-box_buffer,
                                10.*box_size[1]-box_buffer,
                                10.*box_size[2]-box_buffer)
-structure1.pickAtoms(1)
+structure1.pickAtoms([3,4,5])
 structure1.addAtomConstraintInsideBox(box_buffer, box_buffer, box_buffer,
                                10.*box_size[0]-box_buffer,
                                10.*box_size[1]-box_buffer,
@@ -67,5 +66,5 @@ structure1.addAtomConstraintInsideBox(box_buffer, box_buffer, box_buffer,
 #                                10.*box_size[1]-box_buffer,
 #                                10.*box_size[2]-box_buffer)
 
-packmol.run()
+input.run()
 print("selected atom(s):", structure1.atom_groups[0].selected)
