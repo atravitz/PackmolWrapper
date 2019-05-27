@@ -37,12 +37,12 @@ class PackmolInput():
 		#file_text += 'add_box_sides %f\n'%(self.box_buffer)
 		file_text += '\n'
 		for structure in self.structures:
-			print("success")
+			print("structure exists")
 			file_text += 'structure %s\n'%(structure.pdb)
 			file_text += 'number %d\n  '%(structure.number)
 			file_text += structure.constraint_text.replace('\n','\n  ')
 			for atom_group in structure.atom_groups:
-				print("success")
+				print("atom group exists")
 				file_text += '  atoms %s\n    ' %(atom_group.selected)
 				file_text += atom_group.constraint_text.replace('\n','\n    ')
 				file_text += '  end atoms\n'
@@ -114,13 +114,14 @@ class PackmolInput():
 
 
 class PackmolStructure():
-	def __init__(self,pdb,number):
+	def __init__(self, pdb, number):
 		self.pdb = pdb
 		self.number = number
 		self.atom_groups = []
 		self.constraint_text = ''
 
 	def pickAtoms(self,selected):
+		print(selected)
 		self.atom_groups.append(PackmolAtom(selected))
 
 	def addAtomConstraintFixed(self, x, y, z, a, b, g):
@@ -206,7 +207,6 @@ class PackmolAtom():
 
 	def addAtomConstraintOverPlane(self,a,b,c,d):
 		self.constraint_text += 'over plane %f %f %f %f\n'%(a,b,c,d)
-		
+
 	def addAtomConstraintBelowPlane(self,a,b,c,d):
 		self.constraint_text += 'below plane %f %f %f %f\n'%(a,b,c,d)
-
