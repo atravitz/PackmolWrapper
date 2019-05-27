@@ -37,17 +37,15 @@ class PackmolInput():
 		#file_text += 'add_box_sides %f\n'%(self.box_buffer)
 		file_text += '\n'
 		for structure in self.structures:
-			print("structure ", structure, " exists")
 			file_text += 'structure %s\n'%(structure.pdb)
 			file_text += 'number %d\n  '%(structure.number)
 			file_text += structure.constraint_text.replace('\n','\n  ')
-			print("atom groups ", structure.atom_groups)
+			file_text = file_text[:-2]
 			for atom_group in structure.atom_groups:
-				print("atom group exists")
 				file_text += '  atoms %s\n    ' %(atom_group.selected)
 				file_text += atom_group.constraint_text.replace('\n','\n    ')
-				file_text += '  end atoms\n'
-			file_text = file_text[:-2]
+				file_text = file_text[:-2]			
+				file_text += 'end atoms\n'
 			file_text += 'end structure\n\n'
 		return file_text
 
