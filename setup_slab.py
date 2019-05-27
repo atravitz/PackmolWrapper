@@ -27,6 +27,7 @@
 
 
 from PackmolWrapper import PackmolInput
+from PackmolWrapper import PackmolStructure
 
 
 """
@@ -55,12 +56,13 @@ packmol.addStructureConstraintInsideBox(box_buffer, box_buffer, box_buffer,
                                10.*box_size[0]-box_buffer,
                                10.*box_size[1]-box_buffer,
                                10.*box_size[2]-box_buffer)
-# atom1 = structure1.pickAtoms(1)
-# structure1.addAtomConstraintInsideBox(box_buffer, box_buffer, box_buffer,
-#                                10.*box_size[0]-box_buffer,
-#                                10.*box_size[1]-box_buffer,
-#                                10.*box_size[2]-box_buffer)
-#
+structure1.pickAtoms(1)
+structure1.addAtomConstraintInsideBox(box_buffer, box_buffer, box_buffer,
+                               10.*box_size[0]-box_buffer,
+                               10.*box_size[1]-box_buffer,
+                               10.*box_size[2]-box_buffer)
+
+
 # structure2 = packmol.addStructure('molecules/10kuhn.xyz', number)
 # packmol.addStructureConstraintInsideBox(box_buffer, box_buffer, box_buffer,
 #                                10.*box_size[0]-box_buffer,
@@ -68,3 +70,4 @@ packmol.addStructureConstraintInsideBox(box_buffer, box_buffer, box_buffer,
 #                                10.*box_size[2]-box_buffer)
 
 packmol.run()
+print(structure1.atom_groups)
