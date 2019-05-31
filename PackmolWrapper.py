@@ -42,6 +42,8 @@ class PackmolInput():
 			file_text += structure.constraint_text.replace('\n','\n  ')
 			file_text = file_text[:-2]
 			for atom_group in structure.atom_groups:
+				if type(atom_group.selected) == list:
+					atom_group.selected = ''.join(str(e)+ ' ' for e in atom_group.selected)
 				file_text += '  atoms %s\n    ' %(atom_group.selected)
 				file_text += atom_group.constraint_text.replace('\n','\n    ')
 				file_text = file_text[:-2]			
