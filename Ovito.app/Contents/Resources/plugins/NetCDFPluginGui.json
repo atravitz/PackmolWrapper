@@ -1,0 +1,6 @@
+{
+  "plugin-id" : "NetCDFPluginGui",
+  "plugin-version" : "2.8.2-dev13",
+  "dependencies" : [ "NetCDFPlugin", "ParticlesGui" ],
+  "native-library" : "../../PlugIns/NetCDFPluginGui"
+}
