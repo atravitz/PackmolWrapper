@@ -67,4 +67,3 @@ structure1.addAtomConstraintInsideBox(box_buffer, box_buffer, box_buffer,
 #                                10.*box_size[2]-box_buffer)
 
 input.run()
-print("selected atom(s):", structure1.atom_groups[0].selected)

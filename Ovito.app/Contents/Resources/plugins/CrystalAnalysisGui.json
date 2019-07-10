@@ -1,6 +1,0 @@
-{
-  "plugin-id" : "CrystalAnalysisGui",
-  "plugin-version" : "2.8.2-dev13",
-  "dependencies" : [ "CrystalAnalysis", "ParticlesGui" ],
-  "native-library" : "../../PlugIns/CrystalAnalysisGui"
-}
