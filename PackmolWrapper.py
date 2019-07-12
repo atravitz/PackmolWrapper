@@ -16,7 +16,7 @@
 
 """ Quick Guide for Packmol's Input located at
 	http://www.ime.unicamp.br/~martinez/packmol/ """
-from subprocess import Popen, PIPE
+from subprocess import Popen, PIPE, run
 
 class PackmolError(Exception):
 	pass
@@ -74,11 +74,13 @@ class PackmolInput():
 
 	def run(self):
 		self.exportFile('.packmol.inp')
-		with open('.packmol.inp') as inpfile:
-			with open('.packmol.stdout','w') as stdout:
-				inp = inpfile.read()
-				p = Popen(['packmol'], stdin=PIPE, stdout=stdout, shell=True, encoding='utf8')
-				p.communicate(input=inp)
+		# with open('.packmol.inp') as inpfile:
+		# 	with open('.packmol.stdout','w') as stdout:
+				# inp = inpfile.read()
+		p = Popen(['/Users/bencb/Documents/LarsonLab/packmol/packmol', '<', '.packmol.inp'])
+		# p = run(['/Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text', '100loop_10kuhn_30lx.xyz'], shell=True, stdout=PIPE,)
+		# p = run(['ls', '-a'], timeout=10)
+		p.communicate(input='.packmol.inp', timeout=5)
 
 		self.check_no_exception('.packmol.stdout')
 
