@@ -10,7 +10,7 @@ num_lloops = 90
 num_bridges = 10
 num_rloops = 100
 
-box_length = 44.2
+box_length = 44.281
 box_width = 5
 box_height = box_length
 

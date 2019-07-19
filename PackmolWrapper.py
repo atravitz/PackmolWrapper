@@ -77,10 +77,10 @@ class PackmolInput():
 		# with open('.packmol.inp') as inpfile:
 		# 	with open('.packmol.stdout','w') as stdout:
 				# inp = inpfile.read()
-		p = Popen(['/Users/bencb/Documents/LarsonLab/packmol/packmol', '<', '.packmol.inp'])
-		# p = run(['/Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text', '100loop_10kuhn_30lx.xyz'], shell=True, stdout=PIPE,)
+		# p = run(['/Users/bencb/Documents/LarsonLab/packmol/packmol', '<', '/Users/bencb/Documents/LarsonLab/PackmolWrapper/.packmol.inp'])
+		# p = Popen(['python', 'setup_slab.py'], shell=True, stdout=PIPE)
 		# p = run(['ls', '-a'], timeout=10)
-		p.communicate(input='.packmol.inp', timeout=5)
+		# p.communicate(input='.packmol.inp')
 
 		self.check_no_exception('.packmol.stdout')
 
