@@ -23,8 +23,8 @@
         TODO
         If there is a z slice without any atoms, cut it out, minus a tol sliver
 """
-from PackmolWrapper import PackmolInput
-from PackmolWrapper import PackmolStructure
+from packmol_wrapper import PackmolInput
+from packmol_wrapper import PackmolStructure
 
 
 """
