@@ -20,6 +20,8 @@
 import subprocess
 
 
+PACKMOL_PATH = "/Users/atravitz/software/packmol/packmol" 
+
 class PackmolError(Exception):
     pass
 
@@ -83,7 +85,7 @@ class PackmolInput:
 
         try:
             p = subprocess.run(
-                "/Users/atravitz/software/packmol/packmol < .packmol.inp",
+                PACKMOL_PATH + " < .packmol.inp",
                 check=True,
                 shell=True,
                 stdin=open(".packmol.inp", "r"),
