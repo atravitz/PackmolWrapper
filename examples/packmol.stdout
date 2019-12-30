@@ -1,0 +1,22 @@
+
+################################################################################
+
+ PACKMOL - Packing optimization for the automated generation of
+ starting configurations for molecular dynamics simulations.
+ 
+                                                              Version 18.169 
+
+################################################################################
+
+  Packmol must be run with: packmol < inputfile.inp 
+
+  Userguide at: www.ime.unicamp.br/~martinez/packmol 
+
+  Reading input file... (Control-C aborts)
+
+  ERROR: Could not open file. 
+         Could not find file: 10kuhn.xyz
+         Please check if all the input and structure 
+         files are in the current directory or if the
+         correct paths are provided.
+

@@ -19,7 +19,7 @@ number 90
   end atoms
 end structure
 
-structure 10kuhn_bridge.xyz
+structure molecules/10kuhn_bridge.xyz
 number 10
   inside box -2.500000 -22.040500 -22.040500 2.500000 22.040500 22.040500
   atoms 1
@@ -36,7 +36,7 @@ number 10
   end atoms
 end structure
 
-structure 10kuhn.xyz
+structure molecules/10kuhn.xyz
 number 100
   inside box -2.500000 -22.040500 -22.040500 2.500000 22.040500 22.040500
   atoms 1
