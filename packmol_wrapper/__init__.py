@@ -20,7 +20,7 @@
 import subprocess
 
 
-PACKMOL_PATH = "/Users/atravitz/software/packmol/packmol" 
+PACKMOL_PATH = "/Users/atravitz/software/packmol/packmol"
 
 class PackmolError(Exception):
     pass
